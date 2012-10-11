@@ -1,5 +1,13 @@
 Quiz4Oct::Application.routes.draw do
-  resources :contactos
+  
+resources :contactos do
+	member do
+		get 'email'
+	end
+	member do
+		post 'sendemail'
+	end
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

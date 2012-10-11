@@ -1,0 +1,17 @@
+<h1>Adding personal message to Email</h1>
+
+<%= form_tag("/contactos/sendemail", :method => "post") do %>
+  
+
+  <div class="field">
+   <%= label_tag(:mensaje, "Message:") %>
+    <%= text_area_tag(:mensaje, "Write your message...", :size => "24x6") %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag(:idcontacto, @contactoId) %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag("Send Email") %>
+  </div>
+<% end %>

@@ -84,14 +84,14 @@ class ContactosController < ApplicationController
 	#Editar mensaje de Email	
 	# GET /contactos/1/email
 	def email
-		@contactoId = params[:id]
+		@contacto = Contacto.find(params[:id])
 	end
 
 
 	#Enviar email
-	# POST /contactos/sendemail
+	# POST /contactos/1/sendemail
 	def sendemail
-		@contacto = Contacto.find(params[:contactoId])
+		@contacto = Contacto.find(params[:id])
 		@mensaje = params[:mensaje]
 		UserMailer.welcome_email(@contacto, @mensaje).deliver
 

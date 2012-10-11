@@ -1,0 +1,9 @@
+class UserMailer < ActionMailer::Base
+  default from: "notifications@example.com"
+
+  def welcome_email (contacto)
+	@contacto = contacto
+	@url = "http://localhost:3000/"
+	mail(:to => contacto.email, :subject => "Bienvenido a Aplicacion Contactos")
+  end
+end
